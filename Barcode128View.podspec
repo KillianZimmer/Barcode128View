@@ -24,7 +24,7 @@ TODO: Add long description of the pod here.
   s.homepage         = 'https://github.com/Grennan/Barcode128View'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { 'zimmer' => 'diablenet@hotmail.fr' }
+  s.author           = { 'zimmer' => '' }
   s.source           = { :git => 'https://github.com/Grennan/Barcode128View.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
