@@ -53,18 +53,18 @@ You can create a Barcode128View manually with the init(frame:) method and set al
 ```swift
 let codeView = Barcode128View(frame: frame)
 ```
-or with the custom init method bay adding the wanted properties in init(frame:) method parameter
+or with the custom init method bay adding the wanted properties in the init(frame:) method parameters
 ```swift
 let secondCodeView = Barcode128View(frame: CGRect(x: 50, y: codeView.frame.maxY, width: 250, height: 150),
-code128String: "012345678999",
-/* optionnal */
-barColor: .blackColor(),
-textColor: .darkGrayColor(),
-showCode: true,
-fontName: "Helvetica",
-fontSize: 30,
-//or font: UIFont.systemFontOfSize(30),
-padding: 0)
+                        code128String: "012345678999",
+                        /* optionnal */
+                        barColor: .blackColor(),
+                        textColor: .darkGrayColor(),
+                        showCode: true,
+                        fontName: "Helvetica",
+                        fontSize: 30,
+                        //or font: UIFont.systemFontOfSize(30),
+                        padding: 0)
 view.addSubview(secondCodeView)
 ```
 
