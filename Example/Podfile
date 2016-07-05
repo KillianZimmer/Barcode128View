@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'Barcode128View_Example' do
+  pod 'Barcode128View', :path => '../'
+
+  target 'Barcode128View_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
