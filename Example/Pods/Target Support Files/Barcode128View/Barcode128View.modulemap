@@ -1,0 +1,6 @@
+framework module Barcode128View {
+  umbrella header "Barcode128View-umbrella.h"
+
+  export *
+  module * { export * }
+}

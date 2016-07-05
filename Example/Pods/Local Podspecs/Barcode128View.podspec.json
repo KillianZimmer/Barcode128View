@@ -1,0 +1,22 @@
+{
+  "name": "Barcode128View",
+  "version": "0.1.0",
+  "summary": "A short description of Barcode128View.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/<GITHUB_USERNAME>/Barcode128View",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "zimmer": "diablenet@hotmail.fr"
+  },
+  "source": {
+    "git": "https://github.com/<GITHUB_USERNAME>/Barcode128View.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "Barcode128View/Classes/**/*"
+}

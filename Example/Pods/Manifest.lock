@@ -1,0 +1,16 @@
+PODS:
+  - Barcode128View (0.1.0)
+
+DEPENDENCIES:
+  - Barcode128View (from `../`)
+
+EXTERNAL SOURCES:
+  Barcode128View:
+    :path: ../
+
+SPEC CHECKSUMS:
+  Barcode128View: bf2b6decc589c47b2908289d118acfdb68261087
+
+PODFILE CHECKSUM: 38bcd27e6ea4ac3465e231404964f8526a893d25
+
+COCOAPODS: 1.0.1
