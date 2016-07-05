@@ -20,9 +20,14 @@ it, simply add the following line to your Podfile:
 pod "Barcode128View"
 ```
 
+## Screenshot
+
+![capture d ecran 2016-07-05 a 17 26 37](https://cloud.githubusercontent.com/assets/12252587/16590207/e5b3b5c8-42d6-11e6-97a5-d5f34d91621c.png)
+
+
 ## Author
 
-zimmer, diablenet@hotmail.fr
+zimmer
 
 ## License
 
