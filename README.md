@@ -41,9 +41,9 @@ then, set the properties
 ```swift
 codeView.code128String = "0123456789"
 /* optionnal */
-codeView.font = UIFont.systemFontOfSize(20)
-codeView.barColor = UIColor.blackColor()
-codeView.textColor = UIColor.darkGrayColor()
+codeView.font = UIFont.systemFont(ofSize: 20)
+codeView.barColor = UIColor.black
+codeView.textColor = UIColor.darkGray
 codeView.showCode = true
 codeView.padding = 0
 ```
@@ -62,9 +62,9 @@ let secondCodeView = Barcode128View(frame: CGRect(x: 0, y: 0, width: 250, height
                         textColor: .darkGray,
                         padding: 0,
                         showCode: true,
-                        //or font: UIFont.systemFontOfSize(30),
                         fontName: "Helvetica",
                         fontSize: 30
+                        //or font: UIFont.systemFontOfSize(30)
 )
 view.addSubview(secondCodeView)
 ```
