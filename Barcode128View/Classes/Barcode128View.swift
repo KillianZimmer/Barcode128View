@@ -9,13 +9,13 @@
 import UIKit
 
 @IBDesignable
-public class Barcode128View: UIView {
+open class Barcode128View: UIView {
   
-  private let CODE128_STOP_SYMBOL: Int = 211
+  fileprivate let CODE128_STOP_SYMBOL: Int = 211
   
   var	unitWidth: CGFloat!
   
-  @IBInspectable public var code128String: String = "" {
+  @IBInspectable open var code128String: String = "" {
     didSet {
       unitWidth = -1
       code128Array = compressCode128(code128String)
@@ -25,31 +25,31 @@ public class Barcode128View: UIView {
   
   var code128Array: [Int] = [Int]()
   
-  @IBInspectable public var barColor: UIColor = .blackColor() {
+  @IBInspectable open var barColor: UIColor = .black {
     didSet { setNeedsDisplay() }
   }
   
-  @IBInspectable public var textColor: UIColor = .blackColor() {
+  @IBInspectable open var textColor: UIColor = .black {
     didSet { setNeedsDisplay() }
   }
 
-  @IBInspectable public var padding: CGFloat = 0 {
+  @IBInspectable open var padding: CGFloat = 0 {
     didSet { setNeedsDisplay() }
   }
   
-  @IBInspectable public var showCode: Bool = false {
+  @IBInspectable open var showCode: Bool = false {
     didSet { setNeedsDisplay() }
   }
   
-  @IBInspectable public var fontName: String = "System" {
+  @IBInspectable open var fontName: String = "System" {
     didSet { setNeedsDisplay() }
   }
   
-  @IBInspectable public var fontSize: CGFloat = 16 {
+  @IBInspectable open var fontSize: CGFloat = 16 {
     didSet { setNeedsDisplay() }
   }
   
-  public var font = UIFont.systemFontOfSize(16)
+  open var font = UIFont.systemFont(ofSize: 16)
   
   override public init(frame: CGRect) {
     super.init(frame: frame)
@@ -59,9 +59,9 @@ public class Barcode128View: UIView {
     super.init(coder: aDecoder)
   }
   
-  public init(frame: CGRect, code128String: String, barColor: UIColor = .blackColor(), textColor: UIColor = .blackColor(), padding: CGFloat = 0, showCode: Bool = false, font: UIFont = UIFont.systemFontOfSize(16), fontSize: CGFloat = 16, fontName: String = "System") {
+  public init(frame: CGRect, code128String: String, barColor: UIColor = .black, textColor: UIColor = .black, padding: CGFloat = 0, showCode: Bool = false, font: UIFont = UIFont.systemFont(ofSize: 16), fontName: String = "System", fontSize: CGFloat = 16) {
     super.init(frame: frame)
-    backgroundColor = .whiteColor()
+    backgroundColor = .white
     self.code128String = code128String
     unitWidth = -1
     code128Array = compressCode128(self.code128String)
@@ -74,8 +74,8 @@ public class Barcode128View: UIView {
     self.fontName = fontName
   }
   
-  override public func drawRect(rect: CGRect) {
-    super.drawRect(rect)
+  override open func draw(_ rect: CGRect) {
+    super.draw(rect)
     
     if code128String.characters.count <= 0 {
       return
@@ -87,10 +87,10 @@ public class Barcode128View: UIView {
       font = f
     }
     else {
-      font = UIFont.systemFontOfSize(fontSize)
+      font = UIFont.systemFont(ofSize: fontSize)
     }
     
-    let labelHeight = ceil(code128String.boundingRectWithSize(CGSize(width: bounds.size.width, height: CGFloat.max), options: [.TruncatesLastVisibleLine, .UsesLineFragmentOrigin], attributes: [NSFontAttributeName: font], context: nil).height)
+    let labelHeight = ceil(code128String.boundingRect(with: CGSize(width: bounds.size.width, height: CGFloat.greatestFiniteMagnitude), options: [.truncatesLastVisibleLine, .usesLineFragmentOrigin], attributes: [NSFontAttributeName: font], context: nil).height)
     let barHeight = bounds.size.height - (showCode ? labelHeight + padding : 0)
     
     var listArray = [String]()
@@ -99,7 +99,7 @@ public class Barcode128View: UIView {
       listArray.append(CodeSymbol[anUnicar]!)
     }
     
-    let fullCodeString = listArray.joinWithSeparator("")
+    let fullCodeString = listArray.joined(separator: "")
     unitWidth = frame.size.width / (CGFloat((code128Array.count * 11) + 2))
     
     var compLarg: CGFloat = 0
@@ -119,19 +119,19 @@ public class Barcode128View: UIView {
     }
     
     if showCode {
-      let paragraphStyle = NSParagraphStyle.defaultParagraphStyle().mutableCopy() as! NSMutableParagraphStyle
-      paragraphStyle.alignment = NSTextAlignment.Center
-      let attributes = [
+      let paragraphStyle = NSParagraphStyle.default.mutableCopy() as! NSMutableParagraphStyle
+      paragraphStyle.alignment = NSTextAlignment.center
+      let attributes: [String: Any] = [
         NSFontAttributeName: font,
         NSForegroundColorAttributeName: textColor,
         NSParagraphStyleAttributeName: paragraphStyle
       ]
-      (code128String as NSString).drawInRect(CGRect(x: 0, y: barHeight + padding , width: x, height: labelHeight), withAttributes: attributes)
+      (code128String as NSString).draw(in: CGRect(x: 0, y: barHeight + padding , width: x, height: labelHeight), withAttributes: attributes)
     }
     
   }
   
-  func compressCode128(chaine: String) -> [Int]
+  func compressCode128(_ chaine: String) -> [Int]
   {
     var	i = 1
     var codeArray = [Int]()
@@ -224,7 +224,7 @@ public class Barcode128View: UIView {
     return codeArray
   }
   
-  private let CodeSymbol: [Int: String] = [
+  fileprivate let CodeSymbol: [Int: String] = [
     32: "212222",
     33: "222122",
     34: "222221",
@@ -339,7 +339,7 @@ public class Barcode128View: UIView {
 extension String {
   
   subscript (i: Int) -> Character {
-    return self[self.startIndex.advancedBy(i)]
+    return self[self.characters.index(self.startIndex, offsetBy: i)]
   }
   
   subscript (i: Int) -> String {
@@ -347,7 +347,7 @@ extension String {
   }
   
   subscript (r: Range<Int>) -> String {
-    return substringWithRange(startIndex.advancedBy(r.startIndex) ..< startIndex.advancedBy(r.endIndex))
+    return substring(with: characters.index(startIndex, offsetBy: r.lowerBound) ..< characters.index(startIndex, offsetBy: r.upperBound))
   }
   
 }

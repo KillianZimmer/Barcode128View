@@ -19,23 +19,24 @@ class ViewController: UIViewController {
     
     codeView.code128String = "0123456789"
     /* optionnal */
-    codeView.font = UIFont.systemFontOfSize(20)
-    codeView.barColor = UIColor.blackColor()
-    codeView.textColor = UIColor.darkGrayColor()
+    codeView.font = UIFont.systemFont(ofSize: 20)
+    codeView.barColor = UIColor.black
+    codeView.textColor = UIColor.darkGray
     codeView.showCode = true
     codeView.padding = 0
     /*************/
     
-    let secondCodeView = Barcode128View(frame: CGRect(x: 50, y: codeView.frame.maxY, width: 250, height: 150),
-                           code128String: "012345678999",
+    let secondCodeView = Barcode128View(frame: CGRect(x: codeView.frame.minX, y: codeView.frame.maxY + 30, width: 250, height: 150),
+                           code128String: "9876543210",
                            /* optionnal */
-                           barColor: .blackColor(),
-                           textColor: .darkGrayColor(),
+                           barColor: .black,
+                           textColor: .darkGray,
+                           padding: 0,
                            showCode: true,
-                           fontName: "Helvetica",
-                           fontSize: 30,
                            //or font: UIFont.systemFontOfSize(30),
-                           padding: 0)
+                           fontName: "Helvetica",
+                           fontSize: 30
+    )
     view.addSubview(secondCodeView)
     
   }
