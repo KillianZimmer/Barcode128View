@@ -13,7 +13,7 @@ open class Barcode128View: UIView {
   
   fileprivate let CODE128_STOP_SYMBOL: Int = 211
   
-  var	unitWidth: CGFloat!
+  var unitWidth: CGFloat!
   
   @IBInspectable open var code128String: String = "" {
     didSet {
@@ -32,7 +32,7 @@ open class Barcode128View: UIView {
   @IBInspectable open var textColor: UIColor = .black {
     didSet { setNeedsDisplay() }
   }
-
+  
   @IBInspectable open var padding: CGFloat = 0 {
     didSet { setNeedsDisplay() }
   }
@@ -80,7 +80,7 @@ open class Barcode128View: UIView {
     if code128String.characters.count <= 0 {
       return
     }
-  
+    
     barColor.setFill()
     
     if let f = UIFont(name: fontName, size: fontSize) {
@@ -90,7 +90,7 @@ open class Barcode128View: UIView {
       font = UIFont.systemFont(ofSize: fontSize)
     }
     
-    let labelHeight = ceil(code128String.boundingRect(with: CGSize(width: bounds.size.width, height: CGFloat.greatestFiniteMagnitude), options: [.truncatesLastVisibleLine, .usesLineFragmentOrigin], attributes: [NSFontAttributeName: font], context: nil).height)
+    let labelHeight = ceil(code128String.boundingRect(with: CGSize(width: bounds.size.width, height: CGFloat.greatestFiniteMagnitude), options: [.truncatesLastVisibleLine, .usesLineFragmentOrigin], attributes: [.font: font], context: nil).height)
     let barHeight = bounds.size.height - (showCode ? labelHeight + padding : 0)
     
     var listArray = [String]()
@@ -108,7 +108,7 @@ open class Barcode128View: UIView {
     
     for i in 0..<fullCodeString.characters.count {
       aLarg = Int(fullCodeString[i])
-  
+      
       compLarg = CGFloat(aLarg) * unitWidth
       
       if (i%2) == 0 {
@@ -121,10 +121,10 @@ open class Barcode128View: UIView {
     if showCode {
       let paragraphStyle = NSParagraphStyle.default.mutableCopy() as! NSMutableParagraphStyle
       paragraphStyle.alignment = NSTextAlignment.center
-      let attributes: [String: Any] = [
-        NSFontAttributeName: font,
-        NSForegroundColorAttributeName: textColor,
-        NSParagraphStyleAttributeName: paragraphStyle
+      let attributes: [NSAttributedStringKey : Any] = [
+        .font: font,
+        .foregroundColor: textColor,
+        .paragraphStyle: paragraphStyle
       ]
       (code128String as NSString).draw(in: CGRect(x: 0, y: barHeight + padding , width: x, height: labelHeight), withAttributes: attributes)
     }
@@ -133,19 +133,19 @@ open class Barcode128View: UIView {
   
   func compressCode128(_ chaine: String) -> [Int]
   {
-    var	i = 1
+    var  i = 1
     var codeArray = [Int]()
     let count = chaine.characters.count
-    var	table = true
-
+    var  table = true
+    
     if count > 0 {
       for char in chaine.characters {
-        let	acar = char.utf16Value()
+        let  acar = char.utf16Value()
         if (acar < 32 || acar > 126) && acar != 203 {
           return codeArray
         }
       }
-
+      
       while i <= count {
         
         if table == true {
@@ -153,7 +153,7 @@ open class Barcode128View: UIView {
           
           if i + mini <= count  {
             while mini >= 0 {
-              let	achar = chaine[i + mini - 1].utf16Value()
+              let  achar = chaine[i + mini - 1].utf16Value()
               if achar < 48 || achar > 57 {
                 break
               }
@@ -178,7 +178,7 @@ open class Barcode128View: UIView {
           
           if i + mini <= count {
             while mini >= 0 {
-              let	achar = chaine[i + mini - 1].utf16Value()
+              let  achar = chaine[i + mini - 1].utf16Value()
               if achar < 48 || achar > 57 {
                 break
               }
@@ -215,7 +215,7 @@ open class Barcode128View: UIView {
         charVal = charVal - (charVal < 127 ? 32 : 105)
         checksum = i == 0 ? charVal % 103 : (checksum + (i * charVal)) % 103
       }
-    
+      
       checksum += checksum < 95 ? 32 : 105
       codeArray.append(checksum)
       
@@ -333,7 +333,7 @@ open class Barcode128View: UIView {
     210: "211232",
     211: "2331112"
   ]
-
+  
 }
 
 extension String {
@@ -347,7 +347,7 @@ extension String {
   }
   
   subscript (r: Range<Int>) -> String {
-    return substring(with: characters.index(startIndex, offsetBy: r.lowerBound) ..< characters.index(startIndex, offsetBy: r.upperBound))
+    return String(self[characters.index(startIndex, offsetBy: r.lowerBound) ..< characters.index(startIndex, offsetBy: r.upperBound)])
   }
   
 }
@@ -374,3 +374,4 @@ extension Character {
     return 0
   }
 }
+
