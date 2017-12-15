@@ -33,11 +33,13 @@ Then, you just have to set all the properties in the attributs inspector and the
 
 <h3>Code setup</h3>
 If you want to set your Barcode128View properties manually, you can link the view in your code
+
 ```swift
 @IBOutlet weak var codeView: Barcode128View!
 ```
+
 then, set the properties
-<br>
+
 ```swift
 codeView.code128String = "0123456789"
 /* optionnal */
@@ -50,10 +52,13 @@ codeView.padding = 0
 
 <h3>Manual setup</h3>
 You can create a Barcode128View manually with the init(frame:) method and set all the properties
+
 ```swift
 let codeView = Barcode128View(frame: frame)
 ```
+
 or with the custom init method bay adding the wanted properties in the init(frame:) method parameters
+
 ```swift
 let secondCodeView = Barcode128View(frame: CGRect(x: 0, y: 0, width: 250, height: 150),
                         code128String: "012345678999",
@@ -70,6 +75,7 @@ view.addSubview(secondCodeView)
 ```
 
 <h3>Attributes</h3>
+
 ```swift
 open var code128String: String! // default ""
 open var barColor: UIColor! // default .black
@@ -83,7 +89,7 @@ open var font: UIFont! // default UIFont.systemFont(ofSize: 16)
 
 ## Author
 
-zimmer
+Zimmer
 
 ## License
 
