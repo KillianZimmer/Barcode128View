@@ -30,14 +30,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0641C90DEB1226AA3BEDB021D963A26A /* Pods_Barcode128View_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Barcode128View_Tests.framework; path = "Pods-Barcode128View_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0641C90DEB1226AA3BEDB021D963A26A /* Pods_Barcode128View_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Barcode128View_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AA0B0F7BDE52FE9AF81FE4BC89E7D7C /* Pods-Barcode128View_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Barcode128View_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		10422BB836257A3890528C8965D1CF64 /* Pods-Barcode128View_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Barcode128View_Tests-frameworks.sh"; sourceTree = "<group>"; };
 		144C95146CF587A5EA203B1570EC0AAA /* Pods-Barcode128View_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Barcode128View_Example-dummy.m"; sourceTree = "<group>"; };
 		282BA820CF90C5AE2011128B321B2EF8 /* Barcode128View.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Barcode128View.xcconfig; sourceTree = "<group>"; };
 		34AD837EA979F0A1112B729BC109C868 /* Pods-Barcode128View_Tests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Barcode128View_Tests-resources.sh"; sourceTree = "<group>"; };
 		46A0286A2EEF4588D28B2977248682ED /* Pods-Barcode128View_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Barcode128View_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		522F9FD1402421148B1A2A03FAAB585D /* Barcode128View.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Barcode128View.framework; path = Barcode128View.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		522F9FD1402421148B1A2A03FAAB585D /* Barcode128View.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Barcode128View.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		60BECF24D9E7DC5263B02C1A870204D9 /* Barcode128View-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Barcode128View-dummy.m"; sourceTree = "<group>"; };
 		672FD44F24DE62B6E779FD96A79A8668 /* Barcode128View-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Barcode128View-umbrella.h"; sourceTree = "<group>"; };
 		68D3D8D0EE17540B78B37128D3FDE343 /* Pods-Barcode128View_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Barcode128View_Example.debug.xcconfig"; sourceTree = "<group>"; };
@@ -50,17 +50,17 @@
 		87E16E28F4B9D484843738FC5BD5DE60 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8AD77C08349C42F5D525799544325392 /* Pods-Barcode128View_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Barcode128View_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		8E6F33744FB895A242643A29E6E780DB /* Pods-Barcode128View_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Barcode128View_Example-acknowledgements.plist"; sourceTree = "<group>"; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		BC8E3E551FDC97632A2FCA04CEAECEC0 /* Pods-Barcode128View_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Barcode128View_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
-		CB8721ACFE568A327D77B04ABF64DF68 /* Pods_Barcode128View_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Barcode128View_Example.framework; path = "Pods-Barcode128View_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CB8721ACFE568A327D77B04ABF64DF68 /* Pods_Barcode128View_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Barcode128View_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CBB3DE36805AF21409EC968A9691732F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		D2E1BDEF82608803E80D822FE4789331 /* Pods-Barcode128View_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-Barcode128View_Example.modulemap"; sourceTree = "<group>"; };
+		D2E1BDEF82608803E80D822FE4789331 /* Pods-Barcode128View_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-Barcode128View_Example.modulemap"; sourceTree = "<group>"; };
 		D837010DEEA2D2600816579523E507E7 /* Pods-Barcode128View_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Barcode128View_Example-frameworks.sh"; sourceTree = "<group>"; };
 		D87DAD5A9706DE365C9E56A34D15F5CC /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DB412BB33B9528DE1C25A40861335519 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DF783E838AA201E2314F74C28D73F451 /* Pods-Barcode128View_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-Barcode128View_Tests.modulemap"; sourceTree = "<group>"; };
+		DF783E838AA201E2314F74C28D73F451 /* Pods-Barcode128View_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-Barcode128View_Tests.modulemap"; sourceTree = "<group>"; };
 		E00737C6279A059D11A8B53DE905CF6F /* Pods-Barcode128View_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Barcode128View_Example.release.xcconfig"; sourceTree = "<group>"; };
-		E71A7529CA2AA0579920EA34CF3C2956 /* Barcode128View.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = Barcode128View.modulemap; sourceTree = "<group>"; };
+		E71A7529CA2AA0579920EA34CF3C2956 /* Barcode128View.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = Barcode128View.modulemap; sourceTree = "<group>"; };
 		ECF86A5ED1F58F5567058ECBC7F9CDA4 /* Pods-Barcode128View_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Barcode128View_Example-resources.sh"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -115,7 +115,6 @@
 			children = (
 				691DB4E637745078F0B372E3A65BE027 /* Barcode128View.swift */,
 			);
-			name = Classes;
 			path = Classes;
 			sourceTree = "<group>";
 		};
@@ -201,7 +200,6 @@
 			children = (
 				67B0D59D519C35913EEB351F75815059 /* Classes */,
 			);
-			name = Barcode128View;
 			path = Barcode128View;
 			sourceTree = "<group>";
 		};
@@ -313,7 +311,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0700;
+				LastUpgradeCheck = 0920;
 			};
 			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -555,19 +553,29 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGNING_REQUIRED = NO;
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"POD_CONFIGURATION_RELEASE=1",
 					"$(inherited)",
@@ -581,6 +589,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
 				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SYMROOT = "${SRCROOT}/../build";
 				VALIDATE_PRODUCT = YES;
 			};
@@ -595,20 +604,30 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CODE_SIGNING_REQUIRED = NO;
 				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"POD_CONFIGURATION_DEBUG=1",

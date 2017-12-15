@@ -77,7 +77,7 @@ open class Barcode128View: UIView {
   override open func draw(_ rect: CGRect) {
     super.draw(rect)
     
-    if code128String.characters.count <= 0 {
+    if code128String.count <= 0 {
       return
     }
     
@@ -106,7 +106,7 @@ open class Barcode128View: UIView {
     var x: CGFloat = 0
     var aLarg: Int!
     
-    for i in 0..<fullCodeString.characters.count {
+    for i in 0..<fullCodeString.count {
       aLarg = Int(fullCodeString[i])
       
       compLarg = CGFloat(aLarg) * unitWidth
@@ -135,11 +135,11 @@ open class Barcode128View: UIView {
   {
     var  i = 1
     var codeArray = [Int]()
-    let count = chaine.characters.count
+    let count = chaine.count
     var  table = true
     
     if count > 0 {
-      for char in chaine.characters {
+      for char in chaine {
         let  acar = char.utf16Value()
         if (acar < 32 || acar > 126) && acar != 203 {
           return codeArray
@@ -339,7 +339,7 @@ open class Barcode128View: UIView {
 extension String {
   
   subscript (i: Int) -> Character {
-    return self[self.characters.index(self.startIndex, offsetBy: i)]
+    return self[self.index(self.startIndex, offsetBy: i)]
   }
   
   subscript (i: Int) -> String {
@@ -347,7 +347,7 @@ extension String {
   }
   
   subscript (r: Range<Int>) -> String {
-    return String(self[characters.index(startIndex, offsetBy: r.lowerBound) ..< characters.index(startIndex, offsetBy: r.upperBound)])
+    return String(self[self.index(startIndex, offsetBy: r.lowerBound) ..< self.index(startIndex, offsetBy: r.upperBound)])
   }
   
 }
