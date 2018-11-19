@@ -10,221 +10,233 @@ import UIKit
 
 @IBDesignable
 open class Barcode128View: UIView {
-  
-  fileprivate let CODE128_STOP_SYMBOL: Int = 211
-  
-  var unitWidth: CGFloat!
-  
-  @IBInspectable open var code128String: String = "" {
-    didSet {
-      unitWidth = -1
-      code128Array = compressCode128(code128String)
-      setNeedsDisplay()
-    }
-  }
-  
-  var code128Array: [Int] = [Int]()
-  
-  @IBInspectable open var barColor: UIColor = .black {
-    didSet { setNeedsDisplay() }
-  }
-  
-  @IBInspectable open var textColor: UIColor = .black {
-    didSet { setNeedsDisplay() }
-  }
-  
-  @IBInspectable open var padding: CGFloat = 0 {
-    didSet { setNeedsDisplay() }
-  }
-  
-  @IBInspectable open var showCode: Bool = false {
-    didSet { setNeedsDisplay() }
-  }
-  
-  @IBInspectable open var fontName: String = "System" {
-    didSet { setNeedsDisplay() }
-  }
-  
-  @IBInspectable open var fontSize: CGFloat = 16 {
-    didSet { setNeedsDisplay() }
-  }
-  
-  open var font = UIFont.systemFont(ofSize: 16)
-  
-  override public init(frame: CGRect) {
-    super.init(frame: frame)
-  }
-  
-  required public init?(coder aDecoder: NSCoder) {
-    super.init(coder: aDecoder)
-  }
-  
-  public init(frame: CGRect, code128String: String, barColor: UIColor = .black, textColor: UIColor = .black, padding: CGFloat = 0, showCode: Bool = false, font: UIFont = UIFont.systemFont(ofSize: 16), fontName: String = "System", fontSize: CGFloat = 16) {
-    super.init(frame: frame)
-    backgroundColor = .white
-    self.code128String = code128String
-    unitWidth = -1
-    code128Array = compressCode128(self.code128String)
-    self.barColor = barColor
-    self.textColor = textColor
-    self.padding = padding
-    self.showCode = showCode
-    self.font = font
-    self.fontSize = fontSize
-    self.fontName = fontName
-  }
-  
-  override open func draw(_ rect: CGRect) {
-    super.draw(rect)
     
-    if code128String.count <= 0 {
-      return
-    }
+    fileprivate let CODE128_STOP_SYMBOL: Int = 211
     
-    barColor.setFill()
+    fileprivate var unitWidth: CGFloat!
     
-    if let f = UIFont(name: fontName, size: fontSize) {
-      font = f
-    }
-    else {
-      font = UIFont.systemFont(ofSize: fontSize)
-    }
-    
-    let labelHeight = ceil(code128String.boundingRect(with: CGSize(width: bounds.size.width, height: CGFloat.greatestFiniteMagnitude), options: [.truncatesLastVisibleLine, .usesLineFragmentOrigin], attributes: [.font: font], context: nil).height)
-    let barHeight = bounds.size.height - (showCode ? labelHeight + padding : 0)
-    
-    var listArray = [String]()
-    
-    for anUnicar in code128Array {
-      listArray.append(CodeSymbol[anUnicar]!)
-    }
-    
-    let fullCodeString = listArray.joined(separator: "")
-    unitWidth = frame.size.width / (CGFloat((code128Array.count * 11) + 2))
-    
-    var compLarg: CGFloat = 0
-    var x: CGFloat = 0
-    var aLarg: Int!
-    
-    for i in 0..<fullCodeString.count {
-      aLarg = Int(fullCodeString[i])
-      
-      compLarg = CGFloat(aLarg) * unitWidth
-      
-      if (i%2) == 0 {
-        UIRectFill(CGRect(x: x, y: 0, width: compLarg, height: barHeight))
-      }
-      
-      x += compLarg
-    }
-    
-    if showCode {
-      let paragraphStyle = NSParagraphStyle.default.mutableCopy() as! NSMutableParagraphStyle
-      paragraphStyle.alignment = NSTextAlignment.center
-      let attributes: [NSAttributedStringKey : Any] = [
-        .font: font,
-        .foregroundColor: textColor,
-        .paragraphStyle: paragraphStyle
-      ]
-      (code128String as NSString).draw(in: CGRect(x: 0, y: barHeight + padding , width: x, height: labelHeight), withAttributes: attributes)
-    }
-    
-  }
-  
-  func compressCode128(_ chaine: String) -> [Int]
-  {
-    var  i = 1
-    var codeArray = [Int]()
-    let count = chaine.count
-    var  table = true
-    
-    if count > 0 {
-      for char in chaine {
-        let  acar = char.utf16Value()
-        if (acar < 32 || acar > 126) && acar != 203 {
-          return codeArray
+    /// The EAN code.
+    @IBInspectable open var code128String: String = "" {
+        didSet {
+            unitWidth = -1
+            code128Array = compressCode128(code128String)
+            setNeedsDisplay()
         }
-      }
-      
-      while i <= count {
+    }
+    
+    fileprivate var code128Array: [Int] = [Int]()
+    
+    /// Barecode color.
+    @IBInspectable open var barColor: UIColor = .black {
+        didSet { setNeedsDisplay() }
+    }
+    
+    /// EAN label's text color.
+    @IBInspectable open var textColor: UIColor = .black {
+        didSet { setNeedsDisplay() }
+    }
+    
+    /// Padding between the barecode and the EAN label.
+    @IBInspectable open var padding: CGFloat = 0 {
+        didSet { setNeedsDisplay() }
+    }
+    
+    /// If `true` displays EAN number at the bottom of the barcode.
+    @IBInspectable open var showCode: Bool = false {
+        didSet { setNeedsDisplay() }
+    }
+    
+    /// Font name for the EAN number label.
+    @IBInspectable open var fontName: String = "System" {
+        didSet { setNeedsDisplay() }
+    }
+    
+    /// Font size for the EAN code label.
+    @IBInspectable open var fontSize: CGFloat = 16 {
+        didSet { setNeedsDisplay() }
+    }
+    
+    /// Font for the EAN code label.
+    open var font = UIFont.systemFont(ofSize: 16)
+    
+    override public init(frame: CGRect) {
+        super.init(frame: frame)
+    }
+    
+    required public init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+    
+    public init(frame: CGRect, code128String: String, barColor: UIColor = .black, textColor: UIColor = .black, padding: CGFloat = 0, showCode: Bool = false, font: UIFont = UIFont.systemFont(ofSize: 16), fontName: String = "System", fontSize: CGFloat = 16) {
+        super.init(frame: frame)
+        backgroundColor = .white
+        self.code128String = code128String
+        unitWidth = -1
+        code128Array = compressCode128(self.code128String)
+        self.barColor = barColor
+        self.textColor = textColor
+        self.padding = padding
+        self.showCode = showCode
+        self.font = font
+        self.fontSize = fontSize
+        self.fontName = fontName
+    }
+    
+}
+
+extension Barcode128View {
+    
+    override open func draw(_ rect: CGRect) {
+        super.draw(rect)
         
-        if table == true {
-          var mini = (i == 1 || i + 3 == count) ? 3: 5
-          
-          if i + mini <= count  {
-            while mini >= 0 {
-              let  achar = chaine[i + mini - 1].utf16Value()
-              if achar < 48 || achar > 57 {
-                break
-              }
-              mini = mini - 1
-            }
-          }
-          
-          if mini < 0  {
-            if i == 1  {
-              codeArray.append(210)
-            } else   {
-              codeArray.append(204)
-            }
-            table = false
-          } else if i == 1 {
-            codeArray = [209]
-          }
+        if code128String.isEmpty { return }
+        
+        barColor.setFill()
+        
+        if let f = UIFont(name: fontName, size: fontSize) {
+            font = f
+        } else {
+            font = UIFont.systemFont(ofSize: fontSize)
         }
         
-        if !table {
-          var mini = 1
-          
-          if i + mini <= count {
-            while mini >= 0 {
-              let  achar = chaine[i + mini - 1].utf16Value()
-              if achar < 48 || achar > 57 {
-                break
-              }
-              mini = mini - 1
-            }
-          }
-          
-          if mini < 0 {
-            let subStr =  chaine[i-1] + chaine[i]
-            var dummy: Int! = Int(subStr)
-            dummy = dummy + (dummy < 95 ? 32 : 105)
+        let labelHeight = ceil(code128String.boundingRect(with: CGSize(width: bounds.size.width, height: CGFloat.greatestFiniteMagnitude), options: [.truncatesLastVisibleLine, .usesLineFragmentOrigin], attributes: [.font: font], context: nil).height)
+        let barHeight = bounds.size.height - (showCode ? labelHeight + padding : 0)
+        
+        var listArray = [String]()
+        
+        for anUnicar in code128Array {
+            listArray.append(CodeSymbol[anUnicar]!)
+        }
+        
+        let fullCodeString = listArray.joined(separator: "")
+        unitWidth = frame.size.width / (CGFloat((code128Array.count * 11) + 2))
+        
+        var compLarg: CGFloat = 0
+        var x: CGFloat = 0
+        var aLarg: Int!
+        
+        for i in 0..<fullCodeString.count {
+            aLarg = Int(fullCodeString[i])
             
-            codeArray.append(dummy)
+            compLarg = CGFloat(aLarg) * unitWidth
             
-            i = i + 2
-          }
-          else {
-            codeArray.append(205)
-            table = true
-          }
+            if i%2 == 0 {
+                UIRectFill(CGRect(x: x, y: 0, width: compLarg, height: barHeight))
+            }
+            
+            x += compLarg
         }
         
-        if table {
-          codeArray.append(Int(chaine[i-1].utf16Value()))
-          i = i + 1
+        if showCode {
+            let paragraphStyle = NSParagraphStyle.default.mutableCopy() as! NSMutableParagraphStyle
+            paragraphStyle.alignment = NSTextAlignment.center
+            let attributes: [NSAttributedStringKey : Any] = [
+                .font: font,
+                .foregroundColor: textColor,
+                .paragraphStyle: paragraphStyle
+            ]
+            (code128String as NSString).draw(in: CGRect(x: 0, y: barHeight + padding , width: x, height: labelHeight), withAttributes: attributes)
         }
-      }
-      
-      var checksum = 0
-      var charVal: Int!
-      
-      for i in 0..<codeArray.count {
-        charVal = codeArray[i]
-        charVal = charVal - (charVal < 127 ? 32 : 105)
-        checksum = i == 0 ? charVal % 103 : (checksum + (i * charVal)) % 103
-      }
-      
-      checksum += checksum < 95 ? 32 : 105
-      codeArray.append(checksum)
-      
-      codeArray.append(CODE128_STOP_SYMBOL)
+        
     }
-    return codeArray
-  }
-  
-  fileprivate let CodeSymbol: [Int: String] = [
+    
+    private func compressCode128(_ chaine: String) -> [Int] {
+        
+        var  i = 1
+        var codeArray = [Int]()
+        let count = chaine.count
+        var  table = true
+        
+        if count > 0 {
+            for char in chaine {
+                let  acar = char.utf16Value()
+                if (acar < 32 || acar > 126) && acar != 203 {
+                    return codeArray
+                }
+            }
+            
+            while i <= count {
+                
+                if table == true {
+                    var mini = (i == 1 || i + 3 == count) ? 3: 5
+                    
+                    if i + mini <= count  {
+                        while mini >= 0 {
+                            let  achar = chaine[i + mini - 1].utf16Value()
+                            if achar < 48 || achar > 57 {
+                                break
+                            }
+                            mini = mini - 1
+                        }
+                    }
+                    
+                    if mini < 0  {
+                        if i == 1  {
+                            codeArray.append(210)
+                        } else   {
+                            codeArray.append(204)
+                        }
+                        table = false
+                    } else if i == 1 {
+                        codeArray = [209]
+                    }
+                }
+                
+                if !table {
+                    var mini = 1
+                    
+                    if i + mini <= count {
+                        while mini >= 0 {
+                            let  achar = chaine[i + mini - 1].utf16Value()
+                            if achar < 48 || achar > 57 {
+                                break
+                            }
+                            mini = mini - 1
+                        }
+                    }
+                    
+                    if mini < 0 {
+                        let subStr =  chaine[i-1] + chaine[i]
+                        var dummy: Int! = Int(subStr)
+                        dummy = dummy + (dummy < 95 ? 32 : 105)
+                        
+                        codeArray.append(dummy)
+                        
+                        i = i + 2
+                    }
+                    else {
+                        codeArray.append(205)
+                        table = true
+                    }
+                }
+                
+                if table {
+                    codeArray.append(Int(chaine[i-1].utf16Value()))
+                    i = i + 1
+                }
+            }
+            
+            var checksum = 0
+            var charVal: Int!
+            
+            for i in 0..<codeArray.count {
+                charVal = codeArray[i]
+                charVal = charVal - (charVal < 127 ? 32 : 105)
+                checksum = i == 0 ? charVal % 103 : (checksum + (i * charVal)) % 103
+            }
+            
+            checksum += checksum < 95 ? 32 : 105
+            codeArray.append(checksum)
+            
+            codeArray.append(CODE128_STOP_SYMBOL)
+        }
+        
+        return codeArray
+    }
+    
+}
+
+fileprivate let CodeSymbol: [Int: String] = [
     32: "212222",
     33: "222122",
     34: "222221",
@@ -332,46 +344,45 @@ open class Barcode128View: UIView {
     209: "211214",
     210: "211232",
     211: "2331112"
-  ]
-  
-}
+]
 
 extension String {
-  
-  subscript (i: Int) -> Character {
-    return self[self.index(self.startIndex, offsetBy: i)]
-  }
-  
-  subscript (i: Int) -> String {
-    return String(self[i] as Character)
-  }
-  
-  subscript (r: Range<Int>) -> String {
-    return String(self[self.index(startIndex, offsetBy: r.lowerBound) ..< self.index(startIndex, offsetBy: r.upperBound)])
-  }
-  
+    
+    fileprivate subscript (i: Int) -> Character {
+        return self[self.index(self.startIndex, offsetBy: i)]
+    }
+    
+    fileprivate subscript (i: Int) -> String {
+        return String(self[i] as Character)
+    }
+    
+    fileprivate subscript (r: Range<Int>) -> String {
+        return String(self[self.index(startIndex, offsetBy: r.lowerBound) ..< self.index(startIndex, offsetBy: r.upperBound)])
+    }
+    
 }
 
 extension Character {
-  func utf8Value() -> UInt8 {
-    for s in String(self).utf8 {
-      return s
+    
+    fileprivate func utf8Value() -> UInt8 {
+        for s in String(self).utf8 {
+            return s
+        }
+        return 0
     }
-    return 0
-  }
-  
-  func utf16Value() -> UInt16 {
-    for s in String(self).utf16 {
-      return s
+    
+    fileprivate func utf16Value() -> UInt16 {
+        for s in String(self).utf16 {
+            return s
+        }
+        return 0
     }
-    return 0
-  }
-  
-  func unicodeValue() -> UInt32 {
-    for s in String(self).unicodeScalars {
-      return s.value
+    
+    fileprivate func unicodeValue() -> UInt32 {
+        for s in String(self).unicodeScalars {
+            return s.value
+        }
+        return 0
     }
-    return 0
-  }
+    
 }
-
